@@ -19,7 +19,7 @@ con.connect((error) => {
 
     // Define route for homepage
     app.get('/', (req, res) => {
-        res.render('login.ejs');
+        res.render('views/login.ejs');
     });
     app.get('/tips', (req, res) => {
         res.render('tips.ejs');
