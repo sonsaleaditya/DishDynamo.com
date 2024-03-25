@@ -2,7 +2,7 @@
 // Require necessary modules
 require('dotenv').config();
 const path = require('path')
-const port =  3000;;
+const port =  3000;
 const con = require('./connection1');
 const express = require('express');
 const bodyParser = require('body-parser'); // Require body-parser
