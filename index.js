@@ -2,7 +2,7 @@
 // Require necessary modules
 require('dotenv').config();
 const path = require('path')
-const PORT = process.env.PORT;
+const port = 8000;
 const con = require('./connection1');
 const express = require('express');
 const bodyParser = require('body-parser'); // Require body-parser
@@ -452,7 +452,7 @@ app.get('/admin_page',(req,res)=>{
 
 
     // Start the server once the connection is established
-    app.listen(PORT,()=>{
-        console.log(`server is listening to port ${PORT}`)
+    app.listen(port,()=>{
+        console.log(`server is listening to port ${port}`)
     });
 });
