@@ -1,6 +1,6 @@
 /* Background Image */
 body {
-    background-image: url('../images/bg.jpg'); /* Replace with your image path */
+    background-image: url('/images/bg.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     margin: 0;
