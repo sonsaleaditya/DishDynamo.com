@@ -3,4 +3,5 @@ images/
 report/
 database/
 .env/
+.env
 .local/

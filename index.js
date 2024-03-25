@@ -1,4 +1,6 @@
+
 // Require necessary modules
+require('dotenv').config();
 const port = 3000;
 const con = require('./connection1');
 const express = require('express');
@@ -19,7 +21,7 @@ con.connect((error) => {
 
     // Define route for homepage
     app.get('/', (req, res) => {
-        res.render('./views/login.ejs');
+        res.render('login.ejs');
     });
     app.get('/tips', (req, res) => {
         res.render('tips.ejs');
