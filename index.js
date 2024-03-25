@@ -1,6 +1,7 @@
 
 // Require necessary modules
 require('dotenv').config();
+const path = require('path')
 const port = 3000;
 const con = require('./connection1');
 const express = require('express');
@@ -11,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Set the view engine to EJS
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
+app.set("views",path.resolve("./views"))
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
