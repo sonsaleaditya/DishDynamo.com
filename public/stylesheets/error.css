@@ -1,0 +1,36 @@
+/* error.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-container {
+    text-align: center;
+}
+
+.error-container h1 {
+    color: #e74c3c;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.error-container p {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.error-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.error-container a:hover {
+    text-decoration: underline;
+}

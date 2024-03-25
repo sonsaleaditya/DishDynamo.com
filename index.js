@@ -2,7 +2,7 @@
 // Require necessary modules
 require('dotenv').config();
 const path = require('path')
-const port = 8000;
+const port =  3000;;
 const con = require('./connection1');
 const express = require('express');
 const bodyParser = require('body-parser'); // Require body-parser
@@ -13,13 +13,22 @@ app.use(bodyParser.json());
 
 // Set the view engine to EJS
 app.set("view engine", "ejs");
-app.set("views",path.resolve("./views"))
+app.set("views", path.resolve(__dirname, "./views")); 
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
-// Establish MySQL connection
-con.connect((error) => {
-    if (error) throw error;
+app.use(express.static(path.resolve(__dirname, 'public')));
+// Establish PG connection
+
+con.connect((err) => {
+
+    if (err) {
+        console.error('Database connection failed:', err);
+        // Define an error route to render the error page
+        app.get('/error', (req, res) => {
+            res.status(500).render('error'); // Render the error page
+        });
+    } else {
 
     // Define route for homepage
     app.get('/', (req, res) => {
@@ -455,4 +464,6 @@ app.get('/admin_page',(req,res)=>{
     app.listen(port,()=>{
         console.log(`server is listening to port ${port}`)
     });
+
+}
 });
