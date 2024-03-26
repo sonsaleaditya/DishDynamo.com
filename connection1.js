@@ -20,4 +20,5 @@ dotenv.config();
 //     password : 'adit',
 //     port : 5432
 // })
+
     module.exports=db;
