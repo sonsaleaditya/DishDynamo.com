@@ -21,7 +21,7 @@ const ForgotPassword = require("./routes/forgotPassword");
 app.get('/',(req,res)=>{
   res.send("server is running.....")
 })
-
+//helath route
 app.get('/health',(req,res)=>{
   res.send("server is healthy !")
 })
