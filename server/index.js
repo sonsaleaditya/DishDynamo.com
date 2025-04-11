@@ -22,6 +22,10 @@ app.get('/',(req,res)=>{
   res.send("server is running.....")
 })
 
+app.get('/health',(req,res)=>{
+  res.send("server is healthy !")
+})
+
 app.use("/auth", LoginRoute);
 app.use("/auth", RegisterRoute);
 app.use("/auth", RecipeRoute);
