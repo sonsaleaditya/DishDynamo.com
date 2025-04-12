@@ -101,7 +101,7 @@ const removeFromLikedRecipes = async (req, res) => {
     const deletedLikedRecipe = await Liked.deleteOne({ _id: recipeId });
 
     if (!deletedLikedRecipe.deletedCount) {
-      return res.status(404).json({ succes: false, error: "Liked recipe not found" });
+      return res.status(404).json({ success: false, error: "Liked recipe not found" });
     }
 
     res.status(200).json({ success : true, message: "Recipe removed from liked recipes" });
@@ -121,16 +121,16 @@ const searchRecipes = async (req, res) => {
     });
 
     // If no matching recipes found, return a meaningful message
-    if (recipes.length === 0) {
+    if (recipes.length === 0 || !recipes) {
       return res.status(404).json({ recipeNotFound : true,  message: "No recipes found" });
     }
 
     // If matching recipes found, return them in the response
-    res.status(200).json(recipes);
+   return res.status(200).json({success : true, recipes});
   } catch (error) {
     // Handle any server error and return a proper error response
     console.error("Error searching recipes:", error);
-    res.status(500).json({ succes : false, error: "Internal server error" });
+    res.status(500).json({ success : false, error: "Internal server error" });
   }
 };
 

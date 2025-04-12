@@ -68,25 +68,39 @@ const Recipes = () => {
     }
   };
 
+
   const SearchRecipes = async (e) => {
-    const query = e.target.value;
+    const query = e.target.value.trim();
+  
     if (!query) {
-      getRecipes();
+      getRecipes(); // Show all if search is cleared
       return;
     }
-
+  
     try {
       const response = await api.get(`/auth/searchRecipes/${query}`);
-      if (!response.data.message) {
-        setRecipes(response.data);
-      } else {
-        setRecipes([]);
+      const data = response.data;
+
+     if (data.recipeNotFound) {
+        setRecipes([]); // No match found
+        toast.info("No recipes found matching your search.");
       }
-    } catch (e) {
-      console.error(e.message);
+      
+      if (data.success) {
+      //  toast.success("Search completed successfully");
+        setRecipes(data.recipes); // Results found
+      } 
+      
+      
+    } catch (err) {
+      console.error("Search error:", err.message);
+     // toast.error("Error while searching recipes.");
+      setRecipes([]);
     }
   };
+  
 
+  
   return (
     <div className="Recipes">
       <div className="search-bar">
