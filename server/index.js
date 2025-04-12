@@ -21,6 +21,7 @@ const ForgotPassword = require("./routes/forgotPassword");
 app.get('/',(req,res)=>{
   res.send("server is running.....")
 })
+
 //helath route
 app.get('/health',(req,res)=>{
   res.send("server is healthy !")
@@ -32,7 +33,7 @@ app.use("/auth", RecipeRoute);
 app.use("/auth", router);
 app.use("/auth", ForgotPassword);
 
-router.get("/", verifyToken, Home.Home);
+//router.get("/", verifyToken, Home.Home);
 
 module.exports = router;
 
