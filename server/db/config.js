@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+
+function connectDB() {
+
 mongoose
   .connect(process.env.URI)
   .then(() => {
@@ -7,3 +10,7 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to the database:", error);
   });
+
+}
+
+module.exports = connectDB;
